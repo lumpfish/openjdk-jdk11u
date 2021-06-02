@@ -146,6 +146,7 @@ public class ReplayCacheTestProc {
             String userLibs = System.getProperty("test.libs");
 
             if (userLibs != null) {
+            	System.err.println("Trace 1");
                 libs = userLibs.split(",");
             } else {
                 if (Platform.isOSX() || Platform.isWindows()) {
@@ -153,6 +154,7 @@ public class ReplayCacheTestProc {
                     libs = new String[]{"J"};
                 } else {
                     if (acceptor("N", "sanity").waitFor() != 0) {
+                    	System.err.println("Trace 2");
                         Proc.d("Native mode sanity check failed, only java");
                         libs = new String[]{"J"};
                     } else {
