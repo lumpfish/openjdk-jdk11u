@@ -335,6 +335,7 @@ public class ReplayCacheTestProc {
             Proc.d(e);
             throw e;
         }
+        throw new Exception("Throwing exception to collect test output");
     }
 
     // returns the client name
