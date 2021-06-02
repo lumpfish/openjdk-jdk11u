@@ -153,8 +153,9 @@ public class ReplayCacheTestProc {
                     // macOS uses Heimdal and Windows has no native lib
                     libs = new String[]{"J"};
                 } else {
+                	System.err.println("Trace 2a");
                     if (acceptor("N", "sanity").waitFor() != 0) {
-                    	System.err.println("Trace 2");
+                    	System.err.println("Trace 2b");
                         Proc.d("Native mode sanity check failed, only java");
                         libs = new String[]{"J"};
                     } else {
@@ -368,6 +369,7 @@ public class ReplayCacheTestProc {
         Proc p;
         String label;
         String lib;
+    	System.err.println("acceptor: trace 1");
         int pos = type.indexOf('=');
         if (pos < 0) {
             label = type;
