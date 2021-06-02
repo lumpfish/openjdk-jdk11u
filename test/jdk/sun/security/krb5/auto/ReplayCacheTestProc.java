@@ -391,6 +391,7 @@ public class ReplayCacheTestProc {
                 p.prop("jdk.krb5.rcache.useMD5", useMD5);
             }
         } else {
+        	System.err.println("Trace 4");
             p = Proc.create("ReplayCacheTestProc")
                     .env("KRB5_CONFIG", OneKDC.KRB5_CONF)
                     .env("KRB5_KTNAME", OneKDC.KTAB)
@@ -399,13 +400,16 @@ public class ReplayCacheTestProc {
                     .prop("sun.security.jgss.native", "true")
                     .prop("javax.security.auth.useSubjectCredsOnly", "false")
                     .prop("sun.security.nativegss.debug", "true");
+        	System.err.println("Trace 5");
             if (lib != null) {
+            	System.err.println("Trace 6");
                 String libDir = lib.substring(0, lib.lastIndexOf('/'));
                 p.prop("sun.security.jgss.lib", lib)
                         .env("DYLD_LIBRARY_PATH", libDir)
                         .env("LD_LIBRARY_PATH", libDir);
             }
         }
+    	System.err.println("Trace 7");
         Proc.d(label+suffix+" started");
         return p.args(label+suffix).debug(label+suffix).start();
     }
