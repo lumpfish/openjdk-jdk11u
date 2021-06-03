@@ -342,6 +342,8 @@ public class Proc {
             pb.redirectError(ProcessBuilder.Redirect
                     .appendTo(new File(getId("stderr"))));
         }
+        System.err.println("DEBUG: About to start:");
+        System.err.println(cmd.toString());
         p = pb.start();
         br = new BufferedReader(new InputStreamReader(p.getInputStream()));
         return this;
