@@ -402,8 +402,10 @@ public class Proc {
                 break;
             }
         }
-        System.err.println("DEBUG: waitfor returning " + p.waitfor());
-        return p.waitFor();
+        //return p.waitFor();
+        int rc = p.waitFor();
+        System.err.println("DEBUG: waitFor returning " + rc);
+        return rc;
     }
     // Wait for process end with expected exit code
     public void waitFor(int expected) throws Exception {
