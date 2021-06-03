@@ -395,6 +395,7 @@ public class ReplayCacheTestProc {
         } else {
         	System.err.println("Trace 4");
             p = Proc.create("ReplayCacheTestProc")
+            		.debug("DEBUG")
                     .env("KRB5_CONFIG", OneKDC.KRB5_CONF)
                     .env("KRB5_KTNAME", OneKDC.KTAB)
                     .env("KRB5RCACHEDIR", cwd)
