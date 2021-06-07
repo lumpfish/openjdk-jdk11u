@@ -358,9 +358,9 @@ public class Proc {
     // Reads a line from stdout of proc
     public String readLine() throws IOException {
         String s = br.readLine();
+        System.err.println("DEBUG: PROC: " + debug + " readline: " +
+                (s == null ? "<EOF>" : s));
         if (debug != null) {
-            System.err.println("DEBUG: PROC: " + debug + " readline: " +
-                    (s == null ? "<EOF>" : s));
             System.out.println("PROC: " + debug + " readline: " +
                     (s == null ? "<EOF>" : s));
         }
